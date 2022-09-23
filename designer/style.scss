@@ -1,29 +1,56 @@
 @use "sass:math";
+@function number($string) {
+    // Matrices
+    $strings: '0' '1' '2' '3' '4' '5' '6' '7' '8' '9';
+    $numbers: 0 1 2 3 4 5 6 7 8 9;
+  
+    // Result
+    $result: 0;
+  
+    // Looping through all characters
+    @for $i from 1 through str-length($string) {
+        $character: str-slice($string, $i, $i);
+        $index: index($strings, $character);
+      
+        @if not $index {
+          @warn "Unknown character `#{$character}`.";
+          @return false;
+        }
+      
+        $number: nth($numbers, $index);
+        $result: $result * 10 + $number;
+      }
+      @return $result;
+    }
+
+.gauche{
+    height: 10%;
+}
 body{
     padding: 0;
     margin: 0;
 }
-$images: ("1": "url(https://html5up.net/uploads/demos/forty/images/banner.jpg)", "2": "url(https://html5up.net/uploads/demos/forty/images/pic01.jpg)");
+$images: ("1": "https://html5up.net/uploads/demos/forty/images/pic01.jpg" , "2": "https://html5up.net/uploads/demos/forty/images/pic02.jpg" , "3": "https://html5up.net/uploads/demos/forty/images/pic03.jpg" , "4": "https://html5up.net/uploads/demos/forty/images/pic04.jpg" , "5": "https://html5up.net/uploads/demos/forty/images/pic05.jpg" , "6": "https://html5up.net/uploads/demos/forty/images/pic06.jpg");
+$smallDimensions: 5px;
 $bigblockwidth: 100vw;
 $textColor: white;
-$displayer: flex;
+$footBlockColor:#302c4c;
+$lastBlockColor:#282c44;
 h1 h2 ::after{
-    content: "_";
-    color: $textColor;
-    font-size: 1.6em;
+    text-decoration: underline;
 }
 
 .main{
-    height: 42vh;
+    height: 60vh;
     width: $bigblockwidth;
-    display: $displayer;
+    display: flex;
     flex-direction: column;
 }
 
 .secondary{
     height: 55vh;
     width: 100vw;
-    margin-top: 50vh;
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
@@ -31,10 +58,10 @@ h1 h2 ::after{
 .foot{
     height: 100vh;
     width: $bigblockwidth;
-    margin-top: math.div($bigblockwidth, 2);
+    margin-top: math.div($bigblockwidth, 0.8);
 }
 .gros-bloc{
-    height: 100%;
+    height: 80%;
     width: $bigblockwidth;
     padding: auto;
     margin:auto;
@@ -44,11 +71,56 @@ h1 h2 ::after{
 }
 .bloc{
     height: 70%;
-    width: 49%;
+    width: 50%;
     color: $textColor;
+    flex-direction: row;
+    flex-wrap: wrap;
+    opacity: 0.2;
+    
 }
 
-.banner{
+.bloc:hover{
+    opacity: 1;
+}
+
+.haut{
+    background-image: url(https://html5up.net/uploads/demos/forty/images/banner.jpg);
     height:100%;
+    width: 100%;
+    background-attachment: scroll;
+    background-position: center;
+    background-size: cover;
+    background-color:rgba($color: #000000, $alpha: 0.2) ;
 }
 
+.petit{
+    background-position: center;
+}
+
+.bouton-rectangle {
+    border: $smallDimensions solid $textColor;
+    display: flex;
+    flex-direction:row;
+    margin-right: 5%;
+}
+
+.sous-titre{
+    display: flex;
+    flex-direction: row;
+}
+
+@each $number, $link in $images {
+   .bloc-#{$number}{
+    background-image: url($link);
+    background-position: center;
+    @if number($number) > 4 {
+        margin-bottom: 1%;
+    }
+   } 
+}
+.bloc-bas{
+    background-color: $footBlockColor; 
+}
+.dernier-bloc{
+    background-color:$lastBlockColor;
+}
