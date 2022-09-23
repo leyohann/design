@@ -1,0 +1,54 @@
+@use "sass:math";
+body{
+    padding: 0;
+    margin: 0;
+}
+$images: ("1": "url(https://html5up.net/uploads/demos/forty/images/banner.jpg)", "2": "url(https://html5up.net/uploads/demos/forty/images/pic01.jpg)");
+$bigblockwidth: 100vw;
+$textColor: white;
+$displayer: flex;
+h1 h2 ::after{
+    content: "_";
+    color: $textColor;
+    font-size: 1.6em;
+}
+
+.main{
+    height: 42vh;
+    width: $bigblockwidth;
+    display: $displayer;
+    flex-direction: column;
+}
+
+.secondary{
+    height: 55vh;
+    width: 100vw;
+    margin-top: 50vh;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.foot{
+    height: 100vh;
+    width: $bigblockwidth;
+    margin-top: math.div($bigblockwidth, 2);
+}
+.gros-bloc{
+    height: 100%;
+    width: $bigblockwidth;
+    padding: auto;
+    margin:auto;
+    margin-top: 0;
+    margin-right: 15%;
+    color: $textColor;
+}
+.bloc{
+    height: 70%;
+    width: 49%;
+    color: $textColor;
+}
+
+.banner{
+    height:100%;
+}
+

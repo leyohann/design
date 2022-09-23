@@ -1,0 +1,53 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+h1 h2 ::after {
+  content: "_";
+  color: white;
+  font-size: 1.6em;
+}
+
+.main {
+  height: 42vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.secondary {
+  height: 55vh;
+  width: 100vw;
+  margin-top: 50vh;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.foot {
+  height: 100vh;
+  width: 100vw;
+  margin-top: 50vw;
+}
+
+.gros-bloc {
+  height: 100%;
+  width: 100vw;
+  padding: auto;
+  margin: auto;
+  margin-top: 0;
+  margin-right: 15%;
+  color: white;
+}
+
+.bloc {
+  height: 70%;
+  width: 49%;
+  color: white;
+}
+
+.banner {
+  height: 100%;
+}
+
+/*# sourceMappingURL=output.css.map */

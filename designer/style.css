@@ -1,0 +1,102 @@
+body{
+    padding: 0;
+    margin: 0;
+    
+}
+.main{
+    height: 42vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+.secondary{
+    height: 55vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.foot{
+    height: 100vh;
+    width: 100vw;
+    margin-top: 50vh;
+    display: flex;
+    flex-direction: column;
+}
+.gros-bloc{
+    height: 100%;
+    width: 100vw;
+    padding: auto;
+    margin:auto;
+    margin-top: 0;
+    margin-right: 15%;
+    
+}
+.bloc{
+    height: 70%;
+    width: 49%;
+}
+#bloc-haut{
+    color: white;
+    background-image: url(https://html5up.net/uploads/demos/forty/images/banner.jpg);
+    background-attachment: scroll;
+    background-position: center;
+    background-size: cover;
+}
+#bloc1{
+    
+    background-image:url(https://html5up.net/uploads/demos/forty/images/pic01.jpg);
+    
+    background-position: center;
+}
+#bloc2{
+    background-image:url(https://www.booksweeps.com/wp-content/uploads/2020/08/Wy-5cu55_400x400.jpg);
+    
+    background-position: center;
+}
+#bloc3{
+    background-image:url(https://www.booksweeps.com/wp-content/uploads/2020/08/Wy-5cu55_400x400.jpg);
+    
+    background-position: center;
+}
+#bloc4{
+    background-image:url(https://www.booksweeps.com/wp-content/uploads/2020/08/Wy-5cu55_400x400.jpg);
+    
+    background-position: center;
+}
+#bloc5{
+    background-image:url(https://www.booksweeps.com/wp-content/uploads/2020/08/Wy-5cu55_400x400.jpg);
+    margin-bottom: 1%;
+    background-position: center;
+}
+#bloc6{
+    background-image:url(https://www.booksweeps.com/wp-content/uploads/2020/08/Wy-5cu55_400x400.jpg);
+    margin-bottom: 1%;
+    background-position: center;
+}
+#bloc-bas{
+    background-color: #302c4c;
+
+}
+#dernier-bloc{
+    background-color: #282c44;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+    font-weight: 600;
+    line-height: 1.65;
+    margin: 0 0 1em 0;
+}
+p{
+    color: #ffffff;
+}
+
+.bouton-rectangle{
+    border: 5px solid white; 
+    padding: 5px;
+}
+.sous-titre{
+    display: flex;
+    flex-direction: row;
+}
