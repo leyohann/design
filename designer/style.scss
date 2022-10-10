@@ -1,58 +1,65 @@
 @use "sass:math";
+
 @function number($string) {
-    // Matrices
-    $strings: '0' '1' '2' '3' '4' '5' '6' '7' '8' '9';
+    $strings: '0''1''2''3''4''5''6''7''8''9';
     $numbers: 0 1 2 3 4 5 6 7 8 9;
-  
-    // Result
     $result: 0;
-  
-    // Looping through all characters
+
     @for $i from 1 through str-length($string) {
         $character: str-slice($string, $i, $i);
         $index: index($strings, $character);
-      
+
         @if not $index {
-          @warn "Unknown character `#{$character}`.";
-          @return false;
+            @warn "Mauvais caractère `#{$character}`.";
+            @return false;
         }
-      
+
         $number: nth($numbers, $index);
         $result: $result * 10 + $number;
-      }
-      @return $result;
     }
 
-body{
+    @return $result;
+}
+
+body {
     padding: 0;
     margin: 0;
 }
-$images: ("1": "https://html5up.net/uploads/demos/forty/images/pic01.jpg" , "2": "https://html5up.net/uploads/demos/forty/images/pic02.jpg" , "3": "https://html5up.net/uploads/demos/forty/images/pic03.jpg" , "4": "https://html5up.net/uploads/demos/forty/images/pic04.jpg" , "5": "https://html5up.net/uploads/demos/forty/images/pic05.jpg" , "6": "https://html5up.net/uploads/demos/forty/images/pic06.jpg");
+
+$images: (
+    "1": "https://html5up.net/uploads/demos/forty/images/pic01.jpg",
+    "2": "https://html5up.net/uploads/demos/forty/images/pic02.jpg",
+    "3": "https://html5up.net/uploads/demos/forty/images/pic03.jpg",
+    "4": "https://html5up.net/uploads/demos/forty/images/pic04.jpg",
+    "5": "https://html5up.net/uploads/demos/forty/images/pic05.jpg",
+    "6": "https://html5up.net/uploads/demos/forty/images/pic06.jpg"
+);
 $smallDimensions: 2px;
 $hoverColor: skyblue;
 $bigblockwidth: 100vw;
 $textColor: white;
-$footBlockColor:#302c4c;
-$lastBlockColor:#282c44;
-h1::after, h2::after{
-    content: "";
-    width: 20em;
-    height: 10px;
-    background-color: $textColor;
-    margin-top: 5px;
+$footBlockColor: #302c4c;
+$lastBlockColor: #282c44;
+$limitwidth: 1000px;
+
+h1,
+h2 {
+    text-decoration: underline;
 }
 
-p{
+
+p {
     opacity: 1;
 }
-.main{
+
+.main {
     height: 60vh;
     width: $bigblockwidth;
     display: flex;
     flex-direction: column;
 }
 
-.secondary{
+.secondary {
     height: 50vh;
     width: 100vw;
     display: flex;
@@ -60,82 +67,98 @@ p{
     flex-wrap: wrap;
 }
 
-.foot{
+.foot {
     height: 100vh;
     width: $bigblockwidth;
     margin-top: math.div($bigblockwidth, 1.54);
 }
-.gros-bloc{
+
+.gros-bloc {
     height: 80%;
     width: $bigblockwidth;
     padding: auto;
-    margin:auto;
+    margin: auto;
     margin-top: 0;
     margin-right: 15%;
     color: $textColor;
 }
-.bloc{
+
+.bloc {
     height: 70%;
     width: 50%;
     color: $textColor;
     flex-direction: row;
     flex-wrap: wrap;
-    opacity: 0.4;
-    
+    opacity: 0.68;
+
 }
 
-.bloc:hover{
+.bloc:hover {
     opacity: 1;
 }
 
-.haut{
+.haut {
     background-image: url(https://html5up.net/uploads/demos/forty/images/banner.jpg);
-    height:100%;
+    height: 100%;
     width: 100%;
     background-attachment: scroll;
     background-position: center;
     background-size: cover;
-    background-color:rgba($color: #000000, $alpha: 0.2) ;
+    background-color: rgba($color: #000000, $alpha: 0.2);
 }
 
-.petit{
-    background-position: center;
-}
 
 .bouton-rectangle {
     border: $smallDimensions solid $textColor;
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     margin-right: 5%;
     color: $textColor;
     background-color: rgba($color: #000000, $alpha: 0);
 
 }
 
-.sous-titre{
+.sous-titre {
     display: flex;
     flex-direction: row;
 }
 
-@each $number, $link in $images {
-   .bloc-#{$number}{
-    background-image: url($link);
-    background-position: center;
-    @if number($number) > 4 {
-        margin-bottom: 1%;
-    }
-   } 
-}
-.bloc-bas{
-    background-color: $footBlockColor; 
-}
-.dernier-bloc{
-    background-color:$lastBlockColor;
-    margin-top: -3%;
-}
-.fa-brands{
+@each $number,
+$link in $images {
+    .bloc-#{$number} {
+        background-image: url($link);
+        background-position: center;
 
+        //@if number($number)>4 {
+        //margin-bottom: 10%;
+        //}
+    }
 }
-.petit-bloc{
-    
+
+.bloc-bas {
+    background-color: $footBlockColor;
+}
+
+.dernier-bloc {
+    background-color: $lastBlockColor;
+    margin-top: -8%;
+}
+
+.fields {
+    display: flex;
+    width: 50%;
+}
+
+.message-field {
+    height: 15%;
+}
+
+@media screen and (min-width: $limitwidth) {
+    .petit {
+        width: 30%;
+    }
+
+    .wide-bloc {
+        width: 70%;
+    }
 }
