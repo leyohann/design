@@ -1,16 +1,10 @@
 {
-  "name": "designer",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"blabla\"",
-    "compile": "sass style.scss output.css",
-    "watch": "sass --watch style.scss output.css"
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "compile": "sass input.scss style.css",
+  "watch": "sass --watch input.scss style.css"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "sass": "^1.54.9"
+  "devDependencies": {
+    "sass": "^1.55.0"
   }
 }
